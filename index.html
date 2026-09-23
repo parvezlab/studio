@@ -1,193 +1,677 @@
 <!DOCTYPE html>
-<html lang="bn" data-theme="emerald">
+<html lang="bn" class="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Parvez | ParvezStudio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParvezStudio | Creative Showcase & Admin</title>
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f4f6ff',
+              100: '#e5e9ff',
+              500: '#6366f1',
+              600: '#4f46e5',
+              700: '#4338ca',
+              900: '#312e81',
+              950: '#0f172a',
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'Hind Siliguri', 'sans-serif'],
+            serif: ['Playfair Display', 'Kalpurush', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap');
+    
+    body {
+      font-family: 'Inter', 'Hind Siliguri', sans-serif;
+      background-color: #090d16;
+      color: #f1f5f9;
+    }
+    
+    .glass-card {
+      background: rgba(15, 23, 42, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .glass-card:hover {
+      border-color: rgba(99, 102, 241, 0.4);
+      box-shadow: 0 0 25px -5px rgba(99, 102, 241, 0.15);
+    }
+
+    .glow-bg {
+      position: absolute;
+      width: 350px;
+      height: 350px;
+      background: radial-gradient(circle, rgba(99,102,241,0.15) 0%, rgba(0,0,0,0) 70%);
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 4px;
+    }
+  </style>
 </head>
-<body>
+<body class="min-h-screen flex flex-col relative overflow-x-hidden">
 
-    <!-- হেডার ও নেভিগেশন -->
-    <header class="navbar">
-        <div class="logo">
-            <h2>Parvez<span>Studio</span></h2>
+  <div class="glow-bg"></div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 backdrop-blur-md bg-slate-950/80 border-b border-slate-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="#" onclick="showSection('public')" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 via-indigo-500 to-purple-500 text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-indigo-500/20 group-hover:scale-105 transition">
+          PS
         </div>
+        <div>
+          <h1 class="font-bold text-lg tracking-wider text-white">Parvez<span class="text-indigo-400">Studio</span></h1>
+          <p class="text-[10px] text-slate-400 tracking-widest uppercase">Creative Showcase</p>
+        </div>
+      </a>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center gap-3">
+        <a href="#admin" onclick="openAdminCheck()" class="inline-flex items-center gap-2 bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs sm:text-sm font-medium px-3.5 py-2 rounded-lg border border-slate-700/80 transition">
+          <i data-lucide="lock" class="w-4 h-4 text-indigo-400"></i>
+          <span>Admin Portal</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ================= PUBLIC SECTION ================= -->
+  <div id="publicSection" class="flex-1">
+    
+    <!-- Hero / Profile Banner -->
+    <section class="relative py-12 border-b border-slate-800/60 bg-gradient-to-b from-slate-900/50 to-transparent">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center gap-8">
         
-        <nav class="nav-links">
-            <a href="#hero" class="lang-bn">হোম</a><a href="#hero" class="lang-en hidden">Home</a>
-            <a href="#creations" class="lang-bn">ক্রিয়েশনস</a><a href="#creations" class="lang-en hidden">Creations</a>
-            <a href="#recent" class="lang-bn">রিসেন্ট</a><a href="#recent" class="lang-en hidden">Recent</a>
-            <a href="#banners" class="lang-bn">গ্যালারি</a><a href="#banners" class="lang-en hidden">Gallery</a>
-        </nav>
+        <div class="relative group">
+          <div class="w-32 h-32 sm:w-40 sm:h-40 rounded-2xl overflow-hidden border-2 border-indigo-500/30 shadow-2xl bg-slate-800 flex items-center justify-center relative">
+            <i data-lucide="user" class="w-16 h-16 text-slate-500"></i>
+          </div>
+          <div class="absolute -bottom-2 -right-2 bg-indigo-600 text-white p-2 rounded-lg shadow-lg">
+            <i data-lucide="sparkles" class="w-4 h-4"></i>
+          </div>
+        </div>
 
-        <div class="controls">
-            <!-- ভাষা পরিবর্তন -->
-            <button id="lang-toggle" class="btn-ctrl">
-                <i class="fa-solid fa-globe"></i> <span id="lang-label">EN</span>
-            </button>
+        <div class="flex-1 text-center md:text-left">
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-3 mb-2">
+            <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-white">Md Parvez</h2>
+            <span class="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-3 py-1 rounded-full font-medium">Writer & Storyteller</span>
+          </div>
 
-            <!-- থিম নির্বাচন -->
-            <select id="theme-select" class="btn-ctrl">
-                <option value="emerald">💚 সবুজ (বাংলাদেশ ফিল)</option>
-                <option value="dark">🌙 ডার্ক থিম</option>
-                <option value="light">☀️ লাইট থিম</option>
-                <option value="royal">👑 রয়্যাল ব্লু</option>
+          <p class="text-sm sm:text-base text-slate-300 max-w-2xl mb-4 leading-relaxed font-serif">
+            Welcome to ParvezStudio. Here I publish my creative works, including Audio Stories, written short stories, poetry, music compositions, and video narratives.
+          </p>
+
+          <div class="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-slate-400">
+            <span class="flex items-center gap-1.5"><i data-lucide="map-pin" class="w-4 h-4 text-indigo-400"></i> Soroy, Lama, Bandarban</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="mail" class="w-4 h-4 text-indigo-400"></i> parvej@qmail.com.bd</span>
+            <span class="flex items-center gap-1.5"><i data-lucide="headphones" class="w-4 h-4 text-indigo-400"></i> Audio Narratives Specialist</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      
+      <!-- Filter Bar and Search -->
+      <div class="flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+        
+        <!-- Filter Tabs -->
+        <div class="flex items-center gap-2 overflow-x-auto w-full md:w-auto pb-2 md:pb-0 no-scrollbar">
+          <button onclick="filterCategory('all')" class="tab-btn active-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2" data-category="all">
+            <i data-lucide="grid" class="w-4 h-4"></i> All Works
+          </button>
+          <button onclick="filterCategory('audio-story')" class="tab-btn inactive-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2" data-category="audio-story">
+            <i data-lucide="headphones" class="w-4 h-4 text-amber-400"></i> Audio Stories
+          </button>
+          <button onclick="filterCategory('story')" class="tab-btn inactive-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2" data-category="story">
+            <i data-lucide="book-open" class="w-4 h-4 text-blue-400"></i> Text Stories
+          </button>
+          <button onclick="filterCategory('poem')" class="tab-btn inactive-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2" data-category="poem">
+            <i data-lucide="feather" class="w-4 h-4 text-purple-400"></i> Poems
+          </button>
+          <button onclick="filterCategory('song')" class="tab-btn inactive-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2" data-category="song">
+            <i data-lucide="music" class="w-4 h-4 text-rose-400"></i> Songs
+          </button>
+          <button onclick="filterCategory('video')" class="tab-btn inactive-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2" data-category="video">
+            <i data-lucide="video" class="w-4 h-4 text-emerald-400"></i> Videos
+          </button>
+        </div>
+
+        <!-- Search Input -->
+        <div class="relative w-full md:w-72">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" id="searchInput" onkeyup="renderGrid()" placeholder="Search content..." class="w-full pl-10 pr-4 py-2 text-xs sm:text-sm rounded-xl border border-slate-800 bg-slate-900/80 text-white focus:outline-none focus:border-indigo-500 transition">
+        </div>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+
+      <!-- Empty State -->
+      <div id="emptyState" class="hidden text-center py-20">
+        <i data-lucide="folder-open" class="w-12 h-12 text-slate-600 mx-auto mb-3"></i>
+        <h3 class="text-base font-medium text-slate-300">কোন কন্টেন্ট পাওয়া যায়নি</h3>
+        <p class="text-xs text-slate-500 mt-1">অন্য ক্যাটাগরি বা সার্চ কিওয়ার্ড ট্রাই করুন।</p>
+      </div>
+    </main>
+  </div>
+
+
+  <!-- ================= ADMIN SECTION ================= -->
+  <div id="adminSection" class="flex-1 hidden max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 w-full">
+    
+    <div class="flex items-center justify-between border-b border-slate-800 pb-6 mb-8">
+      <div>
+        <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+          <i data-lucide="shield-check" class="w-6 h-6 text-indigo-400"></i> Admin Management Panel
+        </h2>
+        <p class="text-xs text-slate-400 mt-1">নতুন গল্প, অডিও, কবিতা বা ভিডিও যোগ অথবা সম্পাদনা করুন</p>
+      </div>
+
+      <div class="flex gap-3">
+        <button onclick="openWorkModal()" class="bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-medium px-4 py-2 rounded-xl flex items-center gap-2 transition shadow-lg shadow-indigo-600/20">
+          <i data-lucide="plus" class="w-4 h-4"></i> Add New Content
+        </button>
+        <button onclick="logoutAdmin()" class="bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs sm:text-sm font-medium px-3.5 py-2 rounded-xl transition">
+          Exit Admin
+        </button>
+      </div>
+    </div>
+
+    <!-- Admin Content Table -->
+    <div class="glass-card rounded-2xl overflow-hidden">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-slate-900/90 text-slate-400 border-b border-slate-800 uppercase tracking-wider text-[11px]">
+            <tr>
+              <th class="p-4">Title</th>
+              <th class="p-4">Category</th>
+              <th class="p-4">Audio / Media Link</th>
+              <th class="p-4">Date</th>
+              <th class="p-4 text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminTableBody" class="divide-y divide-slate-800/60 text-slate-300">
+            <!-- Dynamic Admin Rows -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ================= MODALS ================= -->
+
+  <!-- Password Prompt Modal -->
+  <div id="passwordModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card rounded-2xl max-w-sm w-full p-6 text-center border border-slate-800">
+      <div class="w-12 h-12 rounded-full bg-indigo-500/10 text-indigo-400 flex items-center justify-center mx-auto mb-4 border border-indigo-500/20">
+        <i data-lucide="lock" class="w-6 h-6"></i>
+      </div>
+      <h3 class="text-lg font-bold text-white mb-1">Admin Password Required</h3>
+      <p class="text-xs text-slate-400 mb-4">পাসওয়ার্ড দিয়ে এডমিন প্যানেলে প্রবেশ করুন</p>
+      
+      <form onsubmit="verifyPassword(event)">
+        <input type="password" id="adminPasswordInput" placeholder="Enter password (default: parvez123)" class="w-full text-xs sm:text-sm px-4 py-2.5 rounded-xl border border-slate-800 bg-slate-900 text-white mb-4 focus:outline-none focus:border-indigo-500">
+        <div class="flex gap-2">
+          <button type="button" onclick="closeModal('passwordModal')" class="flex-1 py-2 text-xs font-medium border border-slate-800 rounded-xl hover:bg-slate-800">Cancel</button>
+          <button type="submit" class="flex-1 py-2 text-xs font-medium bg-indigo-600 text-white rounded-xl hover:bg-indigo-700">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Add / Edit Work Modal -->
+  <div id="workModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card rounded-2xl max-w-xl w-full border border-slate-800 overflow-hidden">
+      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+        <h3 id="modalFormTitle" class="font-bold text-base text-white flex items-center gap-2">
+          <i data-lucide="edit-3" class="w-5 h-5 text-indigo-400"></i> Add New Content
+        </h3>
+        <button onclick="closeModal('workModal')" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <form id="workForm" onsubmit="saveWork(event)" class="p-6 space-y-4 max-h-[80vh] overflow-y-auto custom-scrollbar">
+        <input type="hidden" id="editWorkId">
+
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Title</label>
+          <input type="text" id="formTitle" required placeholder="গল্পের বা কন্টেন্টের শিরোনাম" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:border-indigo-500">
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Category</label>
+            <select id="formCategory" onchange="adjustMediaLabel()" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:border-indigo-500">
+              <option value="audio-story">Audio Story (অডিও গল্প)</option>
+              <option value="story">Text Story (লেখা গল্প)</option>
+              <option value="poem">Poem (কবিতা)</option>
+              <option value="song">Song / Audio (গান)</option>
+              <option value="video">Video (ভিডিও)</option>
             </select>
-        </div>
-    </header>
-
-    <!-- হিরো সেকশন -->
-    <section id="hero" class="hero-section">
-        <div class="hero-content">
-            <div class="hero-text">
-                <span class="badge lang-bn">স্বাগতম!</span>
-                <span class="badge lang-en hidden">Welcome!</span>
-                
-                <h1 class="lang-bn">আমি মোঃ পারভেজ</h1>
-                <h1 class="lang-en hidden">I'm Md. Parvez</h1>
-                
-                <p class="lang-bn">শিক্ষাবিদ, গল্পকার ও আইসিটি ট্রেইনার। বান্দরবানের সবুজ পাহাড়ি প্রকৃতির অভিজ্ঞতা, গল্প, অডিও ড্রামা ও সাহিত্য সৃষ্টির এক ডিজিটাল সংগ্রহশালা।</p>
-                <p class="lang-en hidden">Educator, Storyteller & ICT Trainer. A digital space showcasing stories, audio narratives, poetry, and creations from Bandarban.</p>
-                
-                <div class="hero-btns">
-                    <a href="#creations" class="btn primary-btn lang-bn">ক্রিয়েশনগুলো দেখুন</a>
-                    <a href="#creations" class="btn primary-btn lang-en hidden">Explore Creations</a>
-                </div>
-            </div>
-            
-            <div class="hero-image">
-                <div class="img-wrapper">
-                    <img src="profile.jpg" alt="Md. Parvez">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ব্যানার স্লাইডার -->
-    <section id="banners" class="banner-section">
-        <div class="slider-container">
-            <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('profile.jpg');">
-                <div class="slide-caption">
-                    <h2 class="lang-bn">বান্দরবানের পাহাড়ি অডিও গল্প ও রূপকথা</h2>
-                    <h2 class="lang-en hidden">Audio Stories & Folk Tales from Bandarban</h2>
-                </div>
-            </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('profile.jpg');">
-                <div class="slide-caption">
-                    <h2 class="lang-bn">কবিতা, সাহিত্য ও জীবনের অনুভূতির ক্যানভাস</h2>
-                    <h2 class="lang-en hidden">Poetry, Literature & Reflections on Life</h2>
-                </div>
-            </div>
-            <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('profile.jpg');">
-                <div class="slide-caption">
-                    <h2 class="lang-bn">আইসিটি শিক্ষা ও আধুনিক প্রযুক্তি ভাবনা</h2>
-                    <h2 class="lang-en hidden">ICT Education & Modern Tech Insights</h2>
-                </div>
-            </div>
-
-            <button class="prev-slide">&10094;</button>
-            <button class="next-slide">&10095;</button>
-        </div>
-    </section>
-
-    <!-- ক্রিয়েশন সেকশন (Stories, Audio, Poems, Music, Video) -->
-    <section id="creations" class="creations-section">
-        <h2 class="section-title lang-bn">আমার ক্রিয়েশনস (My Creations)</h2>
-        <h2 class="section-title lang-en hidden">My Creations</h2>
-
-        <!-- ফিল্টার ফিল্ড -->
-        <div class="filter-tabs">
-            <button class="filter-btn active" onclick="filterCategory('all')">সবগুলো / All</button>
-            <button class="filter-btn" onclick="filterCategory('audio-story')">🎧 অডিও গল্প (Audio Story)</button>
-            <button class="filter-btn" onclick="filterCategory('story')">📖 গল্প (Story)</button>
-            <button class="filter-btn" onclick="filterCategory('poem')">✍️ কবিতা (Poetry)</button>
-            <button class="filter-btn" onclick="filterCategory('song')">🎵 গান/অডিও (Music)</button>
+          </div>
+          <div>
+            <label class="block text-xs font-medium text-slate-300 mb-1">Tags (Comma separated)</label>
+            <input type="text" id="formTags" placeholder="গল্প, অনুভূতি, জীবন" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:border-indigo-500">
+          </div>
         </div>
 
-        <div class="creations-grid">
-            <!-- অডিও গল্প ১ -->
-            <div class="creation-card" data-category="audio-story">
-                <div class="card-tag">🎧 Audio Story</div>
-                <h3 class="lang-bn">বান্দরবানের পাহাড়ি ভোর</h3>
-                <h3 class="lang-en hidden">A Morning in Bandarban</h3>
-                <p class="lang-bn">পাহাড়ের মধ্য দিয়ে বয়ে যাওয়া নদীর হাওয়া আর সকালে কুয়াশার অনুভূতি নিয়ে একটি বিশেষ অডিও গল্প।</p>
-                <p class="lang-en hidden">An audio narrative capturing the peaceful morning fog and river breeze in Bandarban.</p>
-                
-                <div class="audio-player">
-                    <audio controls class="w-full">
-                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                    </audio>
-                </div>
-            </div>
-
-            <!-- কবিতা ১ -->
-            <div class="creation-card" data-category="poem">
-                <div class="card-tag">✍️ Poetry</div>
-                <h3 class="lang-bn">বৃষ্টির দিনে স্মৃতিমালা</h3>
-                <h3 class="lang-en hidden">Rainy Day Memories</h3>
-                <p class="poem-text">
-                    মেঘলা দিনের মেঘের খেলা,<br>
-                    পাহাড় চূড়ে বৃষ্টির মেলা।<br>
-                    মন ভিজে যায় পুরোনো সুরে,<br>
-                    স্মৃতিগুলো আজ বহুদূরে।
-                </p>
-            </div>
-
-            <!-- গল্প ১ -->
-            <div class="creation-card" data-category="story">
-                <div class="card-tag">📖 Story</div>
-                <h3 class="lang-bn">খেলার মাঠের শৃঙ্খলা ও শিক্ষা</h3>
-                <h3 class="lang-en hidden">Discipline in the Sports Field</h3>
-                <p class="lang-bn">খেলার মাঠে তরুণদের ট্রেনিং দেওয়া কেবল শারীরিক নয়, মানসিক এক চর্চা। টেবিল টেনিসের প্রতিটি শটে মনোযোগ আর ধৈর্যের শিক্ষা লুকিয়ে থাকে।</p>
-                <p class="lang-en hidden">Coaching on the field isn't just physical—it builds mental endurance, discipline, and focus.</p>
-            </div>
-
-            <!-- গান/অডিও ২ -->
-            <div class="creation-card" data-category="song">
-                <div class="card-tag">🎵 Music</div>
-                <h3 class="lang-bn">লামার ভোরের সুর</h3>
-                <h3 class="lang-en hidden">Morning Melody of Lama</h3>
-                <p class="lang-bn">শান্ত ভোরের অনুভূতি নিয়ে তৈরি একটি একোস্টিক সুর।</p>
-                <p class="lang-en hidden">An acoustic composition reflecting quiet morning vibes.</p>
-                
-                <div class="audio-player">
-                    <audio controls class="w-full">
-                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
-                    </audio>
-                </div>
-            </div>
+        <div id="mediaUrlBox">
+          <label id="mediaUrlLabel" class="block text-xs font-medium text-slate-300 mb-1">Audio File Link (Direct MP3 URL)</label>
+          <input type="url" id="formMediaUrl" placeholder="https://example.com/audio.mp3" class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:border-indigo-500">
         </div>
-    </section>
 
-    <!-- রিসেন্ট সেকশন -->
-    <section id="recent" class="recent-section">
-        <h2 class="section-title lang-bn">রিসেন্ট আপডেট (Recent Activity)</h2>
-        <h2 class="section-title lang-en hidden">Recent Updates</h2>
-
-        <div class="recent-grid">
-            <div class="recent-card">
-                <i class="fa-solid fa-headphones icon"></i>
-                <h4 class="lang-bn">নতুন অডিও গল্প প্রকাশিত</h4>
-                <h4 class="lang-en hidden">New Audio Story Released</h4>
-                <p class="lang-bn">বান্দরবানের লোকগাথা নিয়ে নতুন অডিও ট্র‍্যাক যুক্ত করা হয়েছে।</p>
-                <p class="lang-en hidden">Added a new folk-inspired audio story episode.</p>
-            </div>
-            <div class="recent-card">
-                <i class="fa-solid fa-graduation-cap icon"></i>
-                <h4 class="lang-bn">আইসিটি ওয়ার্কশপ সেশন</h4>
-                <h4 class="lang-en hidden">ICT Workshop Session</h4>
-                <p class="lang-bn">শিক্ষার্থীদের আইসিটি বিষয়ভিত্তিক প্রশ্নাবলী ও গাইডলাইন আপডেট।</p>
-                <p class="lang-en hidden">Updated study resources & ICT materials for students.</p>
-            </div>
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Cover Image URL (Optional)</label>
+          <input type="url" id="formCover" placeholder="https://images.unsplash.com/..." class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:border-indigo-500">
         </div>
-    </section>
 
-    <footer>
-        <p>© 2026 Md. Parvez | ParvezStudio | Hosted on GitHub Pages</p>
-    </footer>
+        <div>
+          <label class="block text-xs font-medium text-slate-300 mb-1">Description / Poem / Full Text</label>
+          <textarea id="formContent" rows="5" required placeholder="এখানে আপনার গল্প, কবিতা বা বিবরণ লিখুন..." class="w-full text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-800 bg-slate-900 text-white focus:outline-none focus:border-indigo-500 custom-scrollbar"></textarea>
+        </div>
 
-    <script src="script.js"></script>
+        <div class="flex justify-end gap-2 pt-2">
+          <button type="button" onclick="closeModal('workModal')" class="px-4 py-2 text-xs font-medium border border-slate-800 rounded-xl text-slate-300 hover:bg-slate-800">Cancel</button>
+          <button type="submit" class="px-5 py-2 text-xs font-medium bg-indigo-600 text-white rounded-xl hover:bg-indigo-700">Save Item</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Detail Reader Modal -->
+  <div id="detailModal" class="fixed inset-0 z-50 hidden bg-slate-950/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card rounded-2xl max-w-2xl w-full border border-slate-800 overflow-hidden flex flex-col max-h-[90vh]">
+      <div class="px-6 py-4 border-b border-slate-800 flex items-center justify-between">
+        <span id="detailBadge" class="text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-400 border border-indigo-500/20">Category</span>
+        <button onclick="closeModal('detailModal')" class="text-slate-400 hover:text-white"><i data-lucide="x" class="w-5 h-5"></i></button>
+      </div>
+
+      <div class="p-6 overflow-y-auto custom-scrollbar space-y-4">
+        <h2 id="detailTitle" class="text-2xl font-bold font-serif text-white"></h2>
+        
+        <div id="detailPlayerContainer"></div>
+
+        <div id="detailContent" class="text-slate-300 text-sm sm:text-base leading-relaxed whitespace-pre-line font-serif pt-2 border-t border-slate-800/80"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-slate-800/80 py-8 bg-slate-950/60 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 text-center text-xs text-slate-500">
+      <p>© <span id="year"></span> ParvezStudio by Md Parvez. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <style>
+    .active-tab { background-color: #4f46e5; color: white; }
+    .inactive-tab { background-color: rgba(15, 23, 42, 0.6); color: #94a3b8; border: 1px solid rgba(255, 255, 255, 0.05); }
+    .inactive-tab:hover { background-color: rgba(30, 41, 59, 0.8); color: white; }
+  </style>
+
+  <!-- Script Application Logic -->
+  <script>
+    // Initial Sample Items with Audio Stories
+    const defaultData = [
+      {
+        id: 1,
+        title: "বান্দরবানের পাহাড়ি ভোর",
+        category: "audio-story",
+        content: "পাহাড়ের মধ্য দিয়ে বয়ে যাওয়া নদীর হাওয়া আর সকালে কুয়াশার শব্দ নিয়ে তৈরি অডিও গল্প। শুনুন পাহাড়ি জীবনের নির্জনতা ও সৌন্দর্য।",
+        mediaUrl: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3",
+        cover: "https://images.unsplash.com/photo-1511497584788-8767611136f6?auto=format&fit=crop&w=600&q=80",
+        tags: ["AudioStory", "Bandarban", "Nature"],
+        date: "2026-09-20"
+      },
+      {
+        id: 2,
+        title: "বৃষ্টির দিনে স্মৃতিমালা",
+        category: "poem",
+        content: "মেঘলা দিনের মেঘের খেলা,\nপাহাড় চূড়ে বৃষ্টির মেলা।\nমন ভিজে যায় পুরোনো সুরে,\nস্মৃতিগুলো আজ বহুদূরে।",
+        cover: "https://images.unsplash.com/photo-1519692933481-e162a57d6721?auto=format&fit=crop&w=600&q=80",
+        tags: ["কবিতা", "বৃষ্টি"],
+        date: "2026-09-15"
+      },
+      {
+        id: 3,
+        title: "খেলার মাঠের শৃঙ্খলা ও শিক্ষা",
+        category: "story",
+        content: "খেলার মাঠে খেলোয়াড়দের ট্রেনিং দেওয়া কেবল শারীরিক নয়, মানসিক এক চর্চা। টেবিল টেনিসের প্রতিটি শটে মনোযোগ আর ধৈর্যের শিক্ষা লুকিয়ে থাকে।",
+        cover: "https://images.unsplash.com/photo-1534158914592-062992fbe900?auto=format&fit=crop&w=600&q=80",
+        tags: ["গল্প", "জীবন"],
+        date: "2026-09-10"
+      }
+    ];
+
+    let works = [];
+    let currentCategory = 'all';
+    let isAdminLoggedIn = false;
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('year').textContent = new Date().getFullYear();
+      loadWorks();
+      
+      // Hash URL detect for Admin Page (e.g. index.html#admin)
+      if (window.location.hash === '#admin') {
+        openAdminCheck();
+      }
+
+      lucide.createIcons();
+    });
+
+    function loadWorks() {
+      const stored = localStorage.getItem('parvez_studio_works');
+      if (stored) {
+        works = JSON.parse(stored);
+      } else {
+        works = defaultData;
+        localStorage.setItem('parvez_studio_works', JSON.stringify(works));
+      }
+      renderGrid();
+    }
+
+    function saveToStorage() {
+      localStorage.setItem('parvez_studio_works', JSON.stringify(works));
+      renderGrid();
+      if (isAdminLoggedIn) renderAdminTable();
+    }
+
+    function renderGrid() {
+      const grid = document.getElementById('portfolioGrid');
+      const emptyState = document.getElementById('emptyState');
+      const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+
+      grid.innerHTML = '';
+
+      const filtered = works.filter(item => {
+        const matchesCategory = currentCategory === 'all' || item.category === currentCategory;
+        const matchesSearch = item.title.toLowerCase().includes(searchQuery) ||
+                              item.tags.some(tag => tag.toLowerCase().includes(searchQuery));
+        return matchesCategory && matchesSearch;
+      });
+
+      if (filtered.length === 0) {
+        emptyState.classList.remove('hidden');
+      } else {
+        emptyState.classList.add('hidden');
+        filtered.forEach(item => grid.appendChild(createCard(item)));
+      }
+
+      lucide.createIcons();
+    }
+
+    function createCard(item) {
+      const card = document.createElement('div');
+      card.className = 'glass-card rounded-2xl overflow-hidden flex flex-col justify-between transition duration-300 group';
+
+      const catMeta = {
+        'audio-story': { icon: 'headphones', label: 'Audio Story', badge: 'bg-amber-500/10 text-amber-400 border-amber-500/20' },
+        'story': { icon: 'book-open', label: 'Text Story', badge: 'bg-blue-500/10 text-blue-400 border-blue-500/20' },
+        'poem': { icon: 'feather', label: 'Poem', badge: 'bg-purple-500/10 text-purple-400 border-purple-500/20' },
+        'song': { icon: 'music', label: 'Song', badge: 'bg-rose-500/10 text-rose-400 border-rose-500/20' },
+        'video': { icon: 'video', label: 'Video', badge: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20' }
+      }[item.category] || { icon: 'file-text', label: 'Item', badge: 'bg-slate-800 text-slate-300' };
+
+      card.innerHTML = `
+        <div>
+          <div class="relative h-48 overflow-hidden bg-slate-900">
+            ${item.cover ? `<img src="${item.cover}" alt="${item.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">` : `<div class="w-full h-full flex items-center justify-center"><i data-lucide="${catMeta.icon}" class="w-12 h-12 text-slate-700"></i></div>`}
+            <span class="absolute top-3 left-3 text-[11px] font-semibold px-3 py-1 rounded-full border ${catMeta.badge} backdrop-blur-md flex items-center gap-1.5">
+              <i data-lucide="${catMeta.icon}" class="w-3.5 h-3.5"></i> ${catMeta.label}
+            </span>
+          </div>
+
+          <div class="p-5">
+            <h3 class="font-bold text-lg text-white mb-2 group-hover:text-indigo-400 transition line-clamp-1">${item.title}</h3>
+            <p class="text-xs sm:text-sm text-slate-400 line-clamp-3 mb-4 leading-relaxed font-serif">
+              ${item.content}
+            </p>
+
+            ${(item.category === 'audio-story' || item.category === 'song') && item.mediaUrl ? `
+              <div class="bg-slate-900/90 p-2.5 rounded-xl border border-slate-800/80 mb-3">
+                <audio controls class="w-full h-8">
+                  <source src="${item.mediaUrl}" type="audio/mpeg">
+                </audio>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+
+        <div class="px-5 pb-5 flex items-center justify-between border-t border-slate-800/60 pt-3">
+          <div class="flex flex-wrap gap-1">
+            ${item.tags.map(t => `<span class="text-[10px] bg-slate-800/80 text-slate-400 px-2 py-0.5 rounded-md">#${t}</span>`).join('')}
+          </div>
+          <button onclick="openDetail(${item.id})" class="text-xs text-indigo-400 font-medium hover:underline flex items-center gap-1">
+            Read / Listen <i data-lucide="arrow-right" class="w-3 h-3"></i>
+          </button>
+        </div>
+      `;
+
+      return card;
+    }
+
+    function filterCategory(cat) {
+      currentCategory = cat;
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        if (btn.dataset.category === cat) {
+          btn.classList.add('active-tab');
+          btn.classList.remove('inactive-tab');
+        } else {
+          btn.classList.remove('active-tab');
+          btn.classList.add('inactive-tab');
+        }
+      });
+      renderGrid();
+    }
+
+    // Admin Auth Logic
+    function openAdminCheck() {
+      if (isAdminLoggedIn) {
+        showSection('admin');
+      } else {
+        openModal('passwordModal');
+      }
+    }
+
+    function verifyPassword(e) {
+      e.preventDefault();
+      const pwd = document.getElementById('adminPasswordInput').value;
+      if (pwd === 'parvez123') { // Change password here if needed
+        isAdminLoggedIn = true;
+        closeModal('passwordModal');
+        showSection('admin');
+        renderAdminTable();
+      } else {
+        alert('ভুল পাসওয়ার্ড! সঠিক পাসওয়ার্ড দিয়ে চেষ্টা করুন।');
+      }
+    }
+
+    function showSection(sec) {
+      if (sec === 'admin') {
+        document.getElementById('publicSection').classList.add('hidden');
+        document.getElementById('adminSection').classList.remove('hidden');
+        window.location.hash = 'admin';
+        renderAdminTable();
+      } else {
+        document.getElementById('adminSection').classList.add('hidden');
+        document.getElementById('publicSection').classList.remove('hidden');
+        window.location.hash = '';
+      }
+      lucide.createIcons();
+    }
+
+    function logoutAdmin() {
+      isAdminLoggedIn = false;
+      showSection('public');
+    }
+
+    function renderAdminTable() {
+      const tbody = document.getElementById('adminTableBody');
+      tbody.innerHTML = '';
+
+      works.forEach(item => {
+        const tr = document.createElement('tr');
+        tr.className = 'hover:bg-slate-900/50 transition';
+        tr.innerHTML = `
+          <td class="p-4 font-semibold text-white">${item.title}</td>
+          <td class="p-4"><span class="px-2.5 py-0.5 text-[10px] rounded-full bg-slate-800 text-indigo-400 border border-slate-700">${item.category}</span></td>
+          <td class="p-4 text-slate-400 truncate max-w-xs">${item.mediaUrl || 'N/A'}</td>
+          <td class="p-4 text-slate-400">${item.date || '-'}</td>
+          <td class="p-4 text-right">
+            <button onclick="editWork(${item.id})" class="p-1.5 hover:text-indigo-400 mr-2"><i data-lucide="edit-2" class="w-4 h-4"></i></button>
+            <button onclick="deleteWork(${item.id})" class="p-1.5 hover:text-rose-400"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+      lucide.createIcons();
+    }
+
+    function openWorkModal(editId = null) {
+      document.getElementById('workForm').reset();
+      document.getElementById('editWorkId').value = '';
+
+      if (editId) {
+        const item = works.find(w => w.id === editId);
+        if (item) {
+          document.getElementById('editWorkId').value = item.id;
+          document.getElementById('formTitle').value = item.title;
+          document.getElementById('formCategory').value = item.category;
+          document.getElementById('formTags').value = item.tags.join(', ');
+          document.getElementById('formMediaUrl').value = item.mediaUrl || '';
+          document.getElementById('formCover').value = item.cover || '';
+          document.getElementById('formContent').value = item.content;
+          document.getElementById('modalFormTitle').textContent = 'Edit Content';
+        }
+      } else {
+        document.getElementById('modalFormTitle').textContent = 'Add New Content';
+      }
+      adjustMediaLabel();
+      openModal('workModal');
+    }
+
+    function saveWork(e) {
+      e.preventDefault();
+      const editId = document.getElementById('editWorkId').value;
+      const title = document.getElementById('formTitle').value;
+      const category = document.getElementById('formCategory').value;
+      const tags = document.getElementById('formTags').value.split(',').map(t => t.trim()).filter(Boolean);
+      const mediaUrl = document.getElementById('formMediaUrl').value;
+      const cover = document.getElementById('formCover').value || 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=600&q=80';
+      const content = document.getElementById('formContent').value;
+
+      if (editId) {
+        const index = works.findIndex(w => w.id == editId);
+        if (index !== -1) {
+          works[index] = { ...works[index], title, category, tags, mediaUrl, cover, content };
+        }
+      } else {
+        const newWork = {
+          id: Date.now(),
+          title,
+          category,
+          tags,
+          mediaUrl,
+          cover,
+          content,
+          date: new Date().toISOString().split('T')[0]
+        };
+        works.unshift(newWork);
+      }
+
+      saveToStorage();
+      closeModal('workModal');
+    }
+
+    function editWork(id) {
+      openWorkModal(id);
+    }
+
+    function deleteWork(id) {
+      if (confirm('আপনি কি নিশ্চিত এই কন্টেন্টটি মুছে ফেলতে চান?')) {
+        works = works.filter(w => w.id !== id);
+        saveToStorage();
+      }
+    }
+
+    function openDetail(id) {
+      const item = works.find(w => w.id === id);
+      if (!item) return;
+
+      document.getElementById('detailTitle').textContent = item.title;
+      document.getElementById('detailBadge').textContent = item.category.toUpperCase();
+      document.getElementById('detailContent').textContent = item.content;
+
+      const playerContainer = document.getElementById('detailPlayerContainer');
+      playerContainer.innerHTML = '';
+
+      if ((item.category === 'audio-story' || item.category === 'song') && item.mediaUrl) {
+        playerContainer.innerHTML = `
+          <div class="bg-slate-900 p-4 rounded-xl border border-slate-800 mb-4">
+            <p class="text-xs font-semibold text-slate-300 mb-2 flex items-center gap-2"><i data-lucide="headphones" class="w-4 h-4 text-indigo-400"></i> Audio Player</p>
+            <audio controls class="w-full">
+              <source src="${item.mediaUrl}" type="audio/mpeg">
+            </audio>
+          </div>
+        `;
+      } else if (item.category === 'video' && item.mediaUrl) {
+        playerContainer.innerHTML = `
+          <div class="aspect-video w-full rounded-xl overflow-hidden mb-4 bg-black border border-slate-800">
+            <iframe src="${item.mediaUrl}" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+          </div>
+        `;
+      }
+
+      openModal('detailModal');
+      lucide.createIcons();
+    }
+
+    function adjustMediaLabel() {
+      const cat = document.getElementById('formCategory').value;
+      const label = document.getElementById('mediaUrlLabel');
+      if (cat === 'audio-story' || cat === 'song') {
+        label.textContent = "Audio File Link (Direct MP3 URL)";
+      } else if (cat === 'video') {
+        label.textContent = "Video Embed Link (YouTube Embed Link)";
+      } else {
+        label.textContent = "Media Link (Optional)";
+      }
+    }
+
+    function openModal(id) { document.getElementById(id).classList.remove('hidden'); }
+    function closeModal(id) { document.getElementById(id).classList.add('hidden'); }
+  </script>
 </body>
 </html>
