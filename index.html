@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md. Parvez - Personal Website</title>
+    <title>Md. Parvez | ParvezStudio</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
@@ -13,19 +12,20 @@
     <!-- হেডার ও নেভিগেশন -->
     <header class="navbar">
         <div class="logo">
-            <h2>Md. Parvez</h2>
+            <h2>Parvez<span>Studio</span></h2>
         </div>
         
         <nav class="nav-links">
             <a href="#hero" class="lang-bn">হোম</a><a href="#hero" class="lang-en hidden">Home</a>
+            <a href="#creations" class="lang-bn">ক্রিয়েশনস</a><a href="#creations" class="lang-en hidden">Creations</a>
             <a href="#recent" class="lang-bn">রিসেন্ট</a><a href="#recent" class="lang-en hidden">Recent</a>
             <a href="#banners" class="lang-bn">গ্যালারি</a><a href="#banners" class="lang-en hidden">Gallery</a>
         </nav>
 
         <div class="controls">
-            <!-- ভাষা নির্বাচন -->
+            <!-- ভাষা পরিবর্তন -->
             <button id="lang-toggle" class="btn-ctrl">
-                <i class="fa-solid font-globe"></i> <span id="lang-label">EN</span>
+                <i class="fa-solid fa-globe"></i> <span id="lang-label">EN</span>
             </button>
 
             <!-- থিম নির্বাচন -->
@@ -38,7 +38,7 @@
         </div>
     </header>
 
-    <!-- হিরো সেকশন (আপনার ছবিসহ) -->
+    <!-- হিরো সেকশন -->
     <section id="hero" class="hero-section">
         <div class="hero-content">
             <div class="hero-text">
@@ -48,12 +48,12 @@
                 <h1 class="lang-bn">আমি মোঃ পারভেজ</h1>
                 <h1 class="lang-en hidden">I'm Md. Parvez</h1>
                 
-                <p class="lang-bn">শিক্ষাবিদ, তথ্যপ্রযুক্তি প্রশিক্ষক ও ওয়েব ডেভেলপমেন্ট অনুরাগী। নতুন নতুন ডিজিটাল সমাধান তৈরিতে আগ্রহী।</p>
-                <p class="lang-en hidden">Educator, ICT Trainer & Web Development Enthusiast. Passionate about building digital solutions.</p>
+                <p class="lang-bn">শিক্ষাবিদ, গল্পকার ও আইসিটি ট্রেইনার। বান্দরবানের সবুজ পাহাড়ি প্রকৃতির অভিজ্ঞতা, গল্প, অডিও ড্রামা ও সাহিত্য সৃষ্টির এক ডিজিটাল সংগ্রহশালা।</p>
+                <p class="lang-en hidden">Educator, Storyteller & ICT Trainer. A digital space showcasing stories, audio narratives, poetry, and creations from Bandarban.</p>
                 
                 <div class="hero-btns">
-                    <a href="#recent" class="btn primary-btn lang-bn">রিসেন্ট আপডেট দেখুন</a>
-                    <a href="#recent" class="btn primary-btn lang-en hidden">View Recent Updates</a>
+                    <a href="#creations" class="btn primary-btn lang-bn">ক্রিয়েশনগুলো দেখুন</a>
+                    <a href="#creations" class="btn primary-btn lang-en hidden">Explore Creations</a>
                 </div>
             </div>
             
@@ -65,68 +65,127 @@
         </div>
     </section>
 
-    <!-- অটো ব্যানার স্লাইডার -->
+    <!-- ব্যানার স্লাইডার -->
     <section id="banners" class="banner-section">
         <div class="slider-container">
             <div class="slide active" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('profile.jpg');">
                 <div class="slide-caption">
-                    <h2 class="lang-bn">উদ্ভাবনী আইসিটি শিক্ষা ও ডিজিটাল ট্র্যানসফরমেশন</h2>
-                    <h2 class="lang-en hidden">Innovative ICT Education & Digital Transformation</h2>
+                    <h2 class="lang-bn">বান্দরবানের পাহাড়ি অডিও গল্প ও রূপকথা</h2>
+                    <h2 class="lang-en hidden">Audio Stories & Folk Tales from Bandarban</h2>
                 </div>
             </div>
             <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('profile.jpg');">
                 <div class="slide-caption">
-                    <h2 class="lang-bn">স্মার্ট অ্যাপ্লিকেশন ও ওয়েব সমাধান</h2>
-                    <h2 class="lang-en hidden">Smart Web Applications & Solutions</h2>
+                    <h2 class="lang-bn">কবিতা, সাহিত্য ও জীবনের অনুভূতির ক্যানভাস</h2>
+                    <h2 class="lang-en hidden">Poetry, Literature & Reflections on Life</h2>
                 </div>
             </div>
             <div class="slide" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('profile.jpg');">
                 <div class="slide-caption">
-                    <h2 class="lang-bn">প্রযুক্তি ও তরুণদের দক্ষতা উন্নয়ন</h2>
-                    <h2 class="lang-en hidden">Technology & Youth Skill Development</h2>
+                    <h2 class="lang-bn">আইসিটি শিক্ষা ও আধুনিক প্রযুক্তি ভাবনা</h2>
+                    <h2 class="lang-en hidden">ICT Education & Modern Tech Insights</h2>
                 </div>
             </div>
 
-            <!-- স্লাইডার কন্ট্রোল -->
             <button class="prev-slide">&10094;</button>
             <button class="next-slide">&10095;</button>
         </div>
     </section>
 
-    <!-- রিসেন্ট (Recent) ট্যাব ও কন্টেন্ট -->
+    <!-- ক্রিয়েশন সেকশন (Stories, Audio, Poems, Music, Video) -->
+    <section id="creations" class="creations-section">
+        <h2 class="section-title lang-bn">আমার ক্রিয়েশনস (My Creations)</h2>
+        <h2 class="section-title lang-en hidden">My Creations</h2>
+
+        <!-- ফিল্টার ফিল্ড -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterCategory('all')">সবগুলো / All</button>
+            <button class="filter-btn" onclick="filterCategory('audio-story')">🎧 অডিও গল্প (Audio Story)</button>
+            <button class="filter-btn" onclick="filterCategory('story')">📖 গল্প (Story)</button>
+            <button class="filter-btn" onclick="filterCategory('poem')">✍️ কবিতা (Poetry)</button>
+            <button class="filter-btn" onclick="filterCategory('song')">🎵 গান/অডিও (Music)</button>
+        </div>
+
+        <div class="creations-grid">
+            <!-- অডিও গল্প ১ -->
+            <div class="creation-card" data-category="audio-story">
+                <div class="card-tag">🎧 Audio Story</div>
+                <h3 class="lang-bn">বান্দরবানের পাহাড়ি ভোর</h3>
+                <h3 class="lang-en hidden">A Morning in Bandarban</h3>
+                <p class="lang-bn">পাহাড়ের মধ্য দিয়ে বয়ে যাওয়া নদীর হাওয়া আর সকালে কুয়াশার অনুভূতি নিয়ে একটি বিশেষ অডিও গল্প।</p>
+                <p class="lang-en hidden">An audio narrative capturing the peaceful morning fog and river breeze in Bandarban.</p>
+                
+                <div class="audio-player">
+                    <audio controls class="w-full">
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+
+            <!-- কবিতা ১ -->
+            <div class="creation-card" data-category="poem">
+                <div class="card-tag">✍️ Poetry</div>
+                <h3 class="lang-bn">বৃষ্টির দিনে স্মৃতিমালা</h3>
+                <h3 class="lang-en hidden">Rainy Day Memories</h3>
+                <p class="poem-text">
+                    মেঘলা দিনের মেঘের খেলা,<br>
+                    পাহাড় চূড়ে বৃষ্টির মেলা।<br>
+                    মন ভিজে যায় পুরোনো সুরে,<br>
+                    স্মৃতিগুলো আজ বহুদূরে।
+                </p>
+            </div>
+
+            <!-- গল্প ১ -->
+            <div class="creation-card" data-category="story">
+                <div class="card-tag">📖 Story</div>
+                <h3 class="lang-bn">খেলার মাঠের শৃঙ্খলা ও শিক্ষা</h3>
+                <h3 class="lang-en hidden">Discipline in the Sports Field</h3>
+                <p class="lang-bn">খেলার মাঠে তরুণদের ট্রেনিং দেওয়া কেবল শারীরিক নয়, মানসিক এক চর্চা। টেবিল টেনিসের প্রতিটি শটে মনোযোগ আর ধৈর্যের শিক্ষা লুকিয়ে থাকে।</p>
+                <p class="lang-en hidden">Coaching on the field isn't just physical—it builds mental endurance, discipline, and focus.</p>
+            </div>
+
+            <!-- গান/অডিও ২ -->
+            <div class="creation-card" data-category="song">
+                <div class="card-tag">🎵 Music</div>
+                <h3 class="lang-bn">লামার ভোরের সুর</h3>
+                <h3 class="lang-en hidden">Morning Melody of Lama</h3>
+                <p class="lang-bn">শান্ত ভোরের অনুভূতি নিয়ে তৈরি একটি একোস্টিক সুর।</p>
+                <p class="lang-en hidden">An acoustic composition reflecting quiet morning vibes.</p>
+                
+                <div class="audio-player">
+                    <audio controls class="w-full">
+                        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" type="audio/mpeg">
+                    </audio>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- রিসেন্ট সেকশন -->
     <section id="recent" class="recent-section">
-        <h2 class="section-title lang-bn">রিসেন্ট আপডেটসমূহ (Recent Activity)</h2>
+        <h2 class="section-title lang-bn">রিসেন্ট আপডেট (Recent Activity)</h2>
         <h2 class="section-title lang-en hidden">Recent Updates</h2>
 
-        <div class="cards-grid">
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-code"></i></div>
-                <h3 class="lang-bn">ওয়েব অ্যাপ্লিকেশন আপডেট</h3>
-                <h3 class="lang-en hidden">Web Application Update</h3>
-                <p class="lang-bn">নতুন ইন্টারেক্টিভ ম্যানেজমেন্ট প্ল্যাটফর্ম গিটহাবে পাবলিশ করা হয়েছে।</p>
-                <p class="lang-en hidden">Published new interactive management platform to GitHub.</p>
+        <div class="recent-grid">
+            <div class="recent-card">
+                <i class="fa-solid fa-headphones icon"></i>
+                <h4 class="lang-bn">নতুন অডিও গল্প প্রকাশিত</h4>
+                <h4 class="lang-en hidden">New Audio Story Released</h4>
+                <p class="lang-bn">বান্দরবানের লোকগাথা নিয়ে নতুন অডিও ট্র‍্যাক যুক্ত করা হয়েছে।</p>
+                <p class="lang-en hidden">Added a new folk-inspired audio story episode.</p>
             </div>
-
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                <h3 class="lang-bn">আইসিটি সেশন এবং ওয়ার্কশপ</h3>
-                <h3 class="lang-en hidden">ICT Sessions & Workshops</h3>
-                <p class="lang-bn">শিক্ষার্থীদের জন্য প্রস্তুতকৃত সাম্প্রতিক বিষয়ভিত্তিক টিউটোরিয়াল ও প্রেজেন্টেশন।</p>
-                <p class="lang-en hidden">Recent subject-based tutorials and presentation materials for students.</p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon"><i class="fa-solid fa-hands-holding-circle"></i></div>
-                <h3 class="lang-bn">কমিউনিটি প্রজেক্ট</h3>
-                <h3 class="lang-en hidden">Community Projects</h3>
-                <p class="lang-bn">স্থানীয় উন্নয়ন ও ডিজিটাল সেবা বৃদ্ধিতে বিভিন্ন নতুন উদ্যোগ গ্রহণ।</p>
-                <p class="lang-en hidden">Taking new initiatives to enhance local development & digital services.</p>
+            <div class="recent-card">
+                <i class="fa-solid fa-graduation-cap icon"></i>
+                <h4 class="lang-bn">আইসিটি ওয়ার্কশপ সেশন</h4>
+                <h4 class="lang-en hidden">ICT Workshop Session</h4>
+                <p class="lang-bn">শিক্ষার্থীদের আইসিটি বিষয়ভিত্তিক প্রশ্নাবলী ও গাইডলাইন আপডেট।</p>
+                <p class="lang-en hidden">Updated study resources & ICT materials for students.</p>
             </div>
         </div>
     </section>
 
     <footer>
-        <p>© 2026 Md. Parvez | Hosted on GitHub Pages</p>
+        <p>© 2026 Md. Parvez | ParvezStudio | Hosted on GitHub Pages</p>
     </footer>
 
     <script src="script.js"></script>
